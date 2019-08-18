@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<img src="{{ path }}" height="300" width="300">
+
+	<br>
+
+	Posted at {{ post.created_at }} by <a href="{{ url_for('external_profile', username=post.uploader) }}">{{ post.uploader }}</a>. 
+
+    <br>
+    
+	Tags: {{ post.tags }} <br>
+	Status: {{ post.status }} <br><br><br>
+
+	<form method="POST" enctype="multipart/form-data">
+		<input type="checkbox" name="like" value="liked"> Like
+
+		<br>
+
+        <input type="submit"/>
+    </form>
+
+
+	
+{% endblock content %}

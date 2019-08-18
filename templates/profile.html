@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<h1>My Profile!</h1>
+	More features to be added soon! Stick around!
+
+	<h2>My Content</h2>
+
+	<div class="tiles-grid">
+		{% for post in postslist %}
+
+			<div data-role="tile" 
+				 data-size="medium" 
+				 data-cover="../uploads/{{post.filename}}"
+				 onclick="window.location.href = '{{ url_for('post', id=post.image_id) }}';">
+		    	<span class="branding-bar">{{ post.uploader }}</span>
+			</div> 
+			
+			
+
+			<!-- <h1>Post {{ post.image_id }}</h1>
+			<img src="data:;base64, {{ post.image }}"/> <br/>
+			Filename: {{ post.filename }} <br/>
+			Uploader: {{ post.uploader }} <br/>
+			Tags: {{ post.tags }} <br/>
+			Status: {{ post.status }} <br/> -->
+			
+
+		{% endfor %}
+	</div>
+
+	<h2>My Favorites!</h2>
+
+	<div class="tiles-grid">
+		{% for post in favorites %}
+
+			<div data-role="tile" 
+				 data-size="medium" 
+				 data-cover="../uploads/{{post.filename}}"
+				 onclick="window.location.href = '{{ url_for('post', id=post.image_id) }}';">
+		    	<span class="branding-bar">{{ post.uploader }}</span>
+			</div> 
+
+		{% endfor %}
+	</div>
+
+	<h2>Following!</h2>
+	{% for user in followlist %}
+		<a href="{{ url_for('external_profile', username=user) }}">{{ user }}</a>
+	{% endfor %}
+
+
+{% endblock content %}

@@ -1,0 +1,90 @@
+<!-- 
+	Picnik makes use of a free and open source HTML/CSS/JS library called Metro 4. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Metro 4 -->
+		<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+
+		<!-- Search Bar
+			As mentioned in search.html, Picnik makes use of a free and open source search bar from user Emily Huang from codepen.io
+		 -->
+		<link rel="stylesheet" href="../static/css/searchbar.css">
+
+		<!-- Just to make the buttons look better -->
+		<link rel="stylesheet" href="../static/css/buttons.css">
+
+		{% if title %}
+			<title>Picnik - {{ title }}</title>
+		{% else %}
+			<title>Picnik</title>
+		{% endif %}
+	</head>
+	<body>
+
+
+		<h1>Picnik - The Social Media You Know You Want</h1>
+
+		Logged in as: {{ session["username"] }} <br><br>
+
+		<button onclick="window.location.href = 'http://localhost:5000/home';">
+			Home/Feed
+		</button>
+
+		<button onclick="window.location.href = 'http://localhost:5000/hot';">
+			Hot
+		</button>
+
+		<button onclick="window.location.href = 'http://localhost:5000/recommended';">
+			Recommended
+		</button>
+
+		<button onclick="window.location.href='http://localhost:5000/following';">
+			Following
+		</button>
+
+		<br><br>
+
+		<button onclick="window.location.href = 'http://localhost:5000/submit';">
+			Submit
+		</button>
+
+		<button onclick="window.location.href = 'http://localhost:5000/profile';">
+			Profile
+		</button>
+
+		<button onclick="window.location.href = 'http://localhost:5000/notifications';">
+			Notifications
+		</button>
+
+		<button onclick="window.location.href = 'http://localhost:5000/settings';">
+			Settings
+		</button>
+
+		<button onclick="window.location.href = 'http://localhost:5000/about';">
+			About
+		</button>
+
+		<button onclick="window.location.href='http://localhost:5000/search';">
+			Search
+		</button>
+
+		<br/>
+		<br/>
+
+		{% block content %}
+		{% endblock content%}
+
+		<br/>
+
+		<!-- jQuery first, then Metro UI JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+	</body>
+</html>

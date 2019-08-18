@@ -1,0 +1,39 @@
+<!--
+	This is a free and open-source login HTML developed by user Tyler Fry.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Picnik - Login</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+
+    <div class="login">
+        <h1>Picnik Login</h1>
+        <form method="post">
+            <input type="text" 
+                   name="username" 
+                   placeholder="Username"
+                   required="required" 
+                   value="{{ request.form.username }}"/>
+            <input type="password" 
+                   name="password" 
+                   placeholder="Password"
+                   required="required" 
+                   value="{{ request.form.password }}"/>
+            <button type="submit" 
+                    class="btn btn-primary btn-block btn-large">
+                Let me in.
+            </button>
+        </form>
+
+        {% if error %}
+            <p class="error"><strong>Error:</strong>{{ error }}</p>
+        {% endif %}
+    </div>
+</head>
+<body>
+
+</body>
+</html>
+

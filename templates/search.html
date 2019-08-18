@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- The following Search Bar comes from a free and open source project
+        developed by user Emily Huang from codepen.io -->
+<div class="wrap">
+    <form method="post">
+        <div class="search">
+
+            <input type="text" name="searchquery" class="searchTerm"
+                   placeholder="Search"/>
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+
+        </div>
+    </form>
+</div>
+<!-- End of Search Bar -->
+{% endblock content %}

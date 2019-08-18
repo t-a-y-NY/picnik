@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<div class="tiles-grid">
+		{% for post in postlist %}
+			<div data-role="tile" 
+				 data-size="medium" 
+				 data-cover="../uploads/{{ post.filename }}" 
+				 onclick="window.location.href = '{{ url_for('post', id=post.image_id) }}';">
+
+				<span class="branding-bar">{{ post.uploader }}</span>
+			
+			</div> 
+		{% endfor %}
+	</div>
+{% endblock content %}
